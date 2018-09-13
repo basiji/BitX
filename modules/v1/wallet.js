@@ -43,7 +43,7 @@ function newWallet(req, res, connection){
     // Insert new record
     connection.query("INSERT INTO app_wallets SET ?", {
         userid:userid,
-        key:w_key,
+        wkey:w_key,
         qr_code:qr_code,
         balance:0
     }, function(error, insertId){
