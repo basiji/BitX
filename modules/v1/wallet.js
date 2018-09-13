@@ -46,14 +46,14 @@ function newWallet(req, res, connection){
         wkey:w_key,
         qr_code:qr_code,
         balance:0
-    }, function(error, insertId){
+    }, function(error, result){
 
         if(error)
             console.log(error);
 
         // return wallet
         return res.json({
-            id:insertId, 
+            id:result.insertId, 
             key:w_key,
             qr_code:qr_code,
             balance:0
