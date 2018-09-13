@@ -39,9 +39,7 @@ function register(req, res, connection){
     connection.query("INSERT INTO app_users SET ?", {
     
         model:req.query.model,
-        api:req.query.api,
-        subdate: dateformat(new Date(), 'yyyy-MM-d')
-    
+        api:req.query.api
     }, function(error, lastId){
         
         if(error) 
@@ -74,7 +72,7 @@ function signup(req, res, connection){
     var userid = req.query.userid;
 
     // Check for user existance
-    connection.query("SELECT * FROM app_users WHERE email = '" + email + "'", function (error, result){
+    connection.query("SELECT * FROM app_users WHERE email = " + email, function (error, result){
         
         if(error)
             console.log(error);
@@ -90,7 +88,8 @@ function signup(req, res, connection){
                 email:email,
                 password:password,
                 referee:referee,
-                refcode:refcode
+                refcode:refcode,
+                subdate: dateformat(new Date(), 'yyyy-MM-d')
 
             }, function (error){
                 
