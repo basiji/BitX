@@ -63,11 +63,12 @@ function signup(req, res, connection){
         return res.sendStatus(404);
 
     // Check for refId
-    if(req.query.refid)
-        var refId = req.query.refid;
+    if(req.query.referee)
+        var referee = req.query.referee;
     else 
-        var refId = 'none';
+        var referee = 'none';
 
+    // Receive parameters
     var email = req.query.email;
     var password = req.query.password;
     var userid = req.query.userid;
@@ -80,11 +81,17 @@ function signup(req, res, connection){
         
         if(result.length !== 0) {
 
+            // Generate referral code 
+            var refcode = Math.random() * (99999999 - 1) + 1;
+
             // Update user records
             connection.query("UPDATE app_users WHERE userid = '" + userid + "' SET ?", {
+                
                 email:email,
                 password:password,
-                refId:refId
+                referee:referee,
+                refcode:refcode
+
             }, function (error){
                 
                 if(error)
