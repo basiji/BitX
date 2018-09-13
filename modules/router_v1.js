@@ -14,7 +14,7 @@ module.exports = function(connection){
     });
 
     // Wallet
-    router.post('/wallet', function(req, res, connection){
+    router.get('/wallet', function(req, res, connection){
         wallet(req, res, connection);
     });
 
