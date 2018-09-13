@@ -72,7 +72,7 @@ function signup(req, res, connection){
     var userid = req.query.userid;
 
     // Check for user existance
-    connection.query("SELECT * FROM app_users WHERE email = " + email, function (error, result){
+    connection.query("SELECT * FROM app_users WHERE email = '" + email + "'", function (error, result){
         
         if(error)
             console.log(error);
