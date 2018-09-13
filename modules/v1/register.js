@@ -95,7 +95,7 @@ function signup(req, res, connection){
             }, function (error){
                 
                 if(error)
-                    console.log(errror);
+                    console.log(error);
             
                 return res.json({
                     status:200
