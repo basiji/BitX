@@ -85,7 +85,7 @@ function signup(req, res, connection){
             var refcode = Math.random() * (99999999 - 1) + 1;
 
             // Update user records
-            connection.query("UPDATE app_users WHERE id = '" + userid + "' SET ?", {
+            connection.query("UPDATE app_users WHERE id = " + userid + " SET ?", {
                 
                 email:email,
                 password:password,
