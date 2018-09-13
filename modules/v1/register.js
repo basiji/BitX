@@ -76,10 +76,8 @@ function signup(req, res, connection){
         
         if(error)
             console.log(error);
-
-        console.log(result.length);
         
-        if(result.length !== 0) {
+        if(result.length == 0) {
 
             // Generate referral code 
             var refcode = Math.random() * (99999999 - 1) + 1;
