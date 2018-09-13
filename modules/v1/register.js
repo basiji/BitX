@@ -77,7 +77,7 @@ function signup(req, res, connection){
         if(error)
             console.log(error);
 
-        console.log(result);
+        console.log(result.length);
         
         if(result.length !== 0) {
 
